@@ -4,9 +4,9 @@
 # проверки типа. Элементы списка можно не запрашивать у пользователя,
 # а указать явно, в программе.
 
-my_str_1 = [1,2,3, 'hello', True, 5.6]
-def my_type(element):
-    for element in range(len(my_str_1)):
-        print(type(my_str_1[element]))
-    return
-my_type(my_str_1)
+my_str_1 = [1, 2, None, 'True', True, 9.5]
+def type_1(element): # создаю функцию
+    for element in range(len(my_str_1)): #создаю цикл, чтобы не прописывать для каждого элемента
+        print(type(my_str_1[element])) #выводим тип
+    return #даем пройти по каждому элементу
+type_1(my_str_1)

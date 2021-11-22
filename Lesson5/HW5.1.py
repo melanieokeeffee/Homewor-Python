@@ -12,6 +12,6 @@ while True:
     else:
         newline = lines + '  /n'
         my_list.append(newline)
-    with open(f"Lesson5/HW5.1.txt", "w+") as HW51:
+    with open(f"HW51.txt", "w+") as HW51:
         HW51.writelines(my_list)
 

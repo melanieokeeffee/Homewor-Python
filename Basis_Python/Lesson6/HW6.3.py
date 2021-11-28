@@ -17,9 +17,12 @@ class Worker:
         self.surname = surname
         self.position = position
         self._income = {"salary": salary, "extra": extra}
+
+
 class Position(Worker):
     def __init__(self, name, surname, position, salary, extra):
         super(Position, self).__init__(name, surname, position, salary, extra)
+
     def get_full_name(self):
         return self.name + " " + self.surname
 

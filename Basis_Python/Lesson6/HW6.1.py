@@ -1,4 +1,3 @@
-
 # 1. Создать класс TrafficLight (светофор) и определить у него один атрибут
 # color (цвет) и метод running (запуск).
 # Атрибут реализовать как приватный. В рамках метода реализовать
@@ -14,23 +13,26 @@
 
 from time import sleep
 
+
+def running():
+    i = 0
+    while i < 3:
+        print('traffic light has changed \n '
+              f'{TrafficLight.__color[i]}')
+        # ждем красный
+        if i == 0:
+            sleep(7)
+        # waiting yellow
+        elif i == 1:
+            sleep(5)
+        elif i == 2:
+            sleep(4)
+        i += 1
+
+
 class TrafficLight:
     __color = ['red', 'yellow', 'green']
 
-    def running(self):
-        i = 0
-        while i < 3:
-            print('traffic light has changed \n '
-                  f'{TrafficLight.__color[i]}')
-            # ждем красный
-            if i == 0:
-                sleep(7)
-            # waiting yellow
-            elif i == 1:
-                sleep(5)
-            elif i == 2:
-                sleep(4)
-            i += 1
 
 TrafficLight = TrafficLight()
-TrafficLight.running()
+running()

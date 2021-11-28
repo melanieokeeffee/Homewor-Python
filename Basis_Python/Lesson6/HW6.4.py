@@ -16,16 +16,22 @@ class Car:
         self.color = color
         self.name = name
         self.is_police = is_police
+
     def go(self):
         return f'{self.name} is started!'
+
     def stop(self):
         return f'{self.name} is stopped!'
+
     def turn_right(self):
         return f'{self.name} turned right!'
+
     def turn_left(self):
         return f'{self.name} turned left!'
+
     def speed(self):
         return f'Current speed {self.name} is {self.speed}'
+
 
 # Для классов TownCar и WorkCar переопределите метод show_speed.
 # При значении скорости свыше 60 (TownCar) и 40 (WorkCar)
@@ -34,6 +40,7 @@ class Car:
 class TownCar(Car):
     def __init__(self, speed, color, name, is_police):
         super().__init__(speed, color, name, is_police)
+
     def show_speed(self):
         print(f'Current speed of town car {self.name} is {self.speed}')
 
@@ -41,6 +48,8 @@ class TownCar(Car):
             return f'Speed of {self.name} is higher than allow for town car'
         else:
             return f'Speed of {self.name} is normal for town car'
+
+
 class SportCar(Car):
     def __init__(self, speed, color, name, is_police):
         super().__init__(speed, color, name, is_police)
@@ -53,24 +62,30 @@ class SportCar(Car):
         else:
             return f'Speed of {self.name} is normal for town car'
 
+
 # Создайте экземпляры классов, передайте значения атрибутов.
 # Выполните доступ к атрибутам, выведите результат.
 # Выполните вызов методов и также покажите результат.
 class WorkCar(Car):
     def __init__(self, speed, color, name, is_police):
         super().__init__(speed, color, name, is_police)
+
     def show_speed(self):
         print(f'Current speed of work car {self.name} is {self.speed}')
         if self.speed > 40:
             return f'Speed of {self.name} is higher than allow for work car'
+
+
 class PoliceCar(Car):
     def __init__(self, speed, color, name, is_police):
         super().__init__(speed, color, name, is_police)
+
     def police(self):
         if self.is_police:
             return f'{self.name} is from police department'
         else:
             return f'{self.name} is not from police department'
+
 
 BMW = SportCar(110, 'Black', 'BMW', False)
 KIA = TownCar(30, 'White', 'KIA', False)

@@ -17,31 +17,51 @@
 #
 # Подсказка: использовать менеджеры контекста.
 
+# решение преподавателя
+
+
 import json
-profit = {}
-profit2 = {}
-profit3 = 0
-prof_aver = 0
-i = 0
-with open('HW57.txt', 'r') as file:
-    for line in file:
-        name, firm, earning, damage = line.split()
-        profit[name] = int(earning) - int(damage)
-        if profit.setdefault(name) >= 0:
-            prof = profit3 + profit.setdefault(name)
-            i += 1
-    if i != 0:
-        prof_aver = profit3 / i
-        print(f'Прибыль средняя - {prof_aver:.2f}')
-    else:
-        print(f'Прибыль средняя - отсутсвует. Все работают в убыток')
-    pr = {'средняя прибыль': round(prof_aver)}
-    profit.update(profit2)
-    print(f'Прибыль каждой компании - {profit}')
+companies = {}
+pos_count, pos_sum = 0, 0
+with open('HW57.txt') as file:
+    file_lines = file.readlines()
+    for line in file_lines:
+        data = line.split()
+        profit = float(data[2]) - float(data[3])
+        companies.update({data[0]: profit})
+        if profit > 0:
+            pos_count += 1
+            pos_sum += profit
+average_profit = pos_sum / pos_count
+result = [companies, {'average_profit': average_profit}]
 
-with open('file_7.json', 'w') as write_js:
-    json.dump(profit, write_js)
-
-    js_str = json.dumps(profit)
-    print(f'Создан файл с расширением json со следующим содержимым: \n '
-          f' {js_str}')
+with open('result7.json', 'w') as file:
+    json.dump(result,file)
+# import json
+# profit = {}
+# profit2 = {}
+# profit3 = 0
+# prof_aver = 0
+# i = 0
+# with open('HW57.txt', 'r') as file:
+#     for line in file:
+#         name, firm, earning, damage = line.split()
+#         profit[name] = int(earning) - int(damage)
+#         if profit.setdefault(name) >= 0:
+#             prof = profit3 + profit.setdefault(name)
+#             i += 1
+#     if i != 0:
+#         prof_aver = profit3 / i
+#         print(f'Прибыль средняя - {prof_aver:.2f}')
+#     else:
+#         print(f'Прибыль средняя - отсутсвует. Все работают в убыток')
+#     pr = {'средняя прибыль': round(prof_aver)}
+#     profit.update(profit2)
+#     print(f'Прибыль каждой компании - {profit}')
+#
+# with open('file_7.json', 'w') as write_js:
+#     json.dump(profit, write_js)
+#
+#     js_str = json.dumps(profit)
+#     print(f'Создан файл с расширением json со следующим содержимым: \n '
+#           f' {js_str}')

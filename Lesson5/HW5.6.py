@@ -16,10 +16,30 @@
 # Пример словаря:
 # {“Информатика”: 170, “Физика”: 40, “Физкультура”: 30}
 
-#import json
-subj = {}
-with open('HW56.txt', 'r') as file:
-    for line in file:
-        subject, lecture, practice, lab = line.split()
-        subj[subject] = int(lecture) + int(practice) + int(lab)
-    print(f'Общее количество часов по предмету - \n {subj}')
+# решение преподавателя
+result = {}
+with open('HW56.2.txt') as file:
+    file_lines = file.readlines()
+    for line in file_lines:
+        data = line.split()
+        hours = 0
+        for elem in data[1:]:
+            if elem != '-':
+                num = '0'
+                for i in elem:
+                    if i.isdigit():
+                        num +=i
+                    else:
+                        break
+                hours += int(num)
+        result.update({data[0].strip(':'):hours})
+
+
+
+# #import json
+# subj = {}
+# with open('HW56.txt', 'r') as file:
+#     for line in file:
+#         subject, lecture, practice, lab = line.split()
+#         subj[subject] = int(lecture) + int(practice) + int(lab)
+#     print(f'Общее количество часов по предмету - \n {subj}')

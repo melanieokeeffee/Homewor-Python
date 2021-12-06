@@ -40,15 +40,15 @@ class Cell:
 
 
 if __name__ == '__main__':
-    c1 = Cell(17)
-    print(c1)
-    c2 = Cell(13)
-    print(c2)
+    cell1 = Cell(14)
+    print(cell1)
+    cell2 = Cell(21)
+    print(cell2)
 
-    print(c1 + c2)
-    print(c1 - c2)
-    print(c2 - c1)
-    print(c2 - c2)
-    print(c1 * c2)
-    print(c1 / c2)
-    print((c1 * c2).make_order(23))
+    print(cell1 + cell2)
+    print(cell1 - cell2)
+    print(cell2 - cell1)
+    print(cell2 - cell2)
+    print(cell1 * cell2)
+    print(cell1 / cell2)
+    # print((cell1 * cell2).make_order(23))
